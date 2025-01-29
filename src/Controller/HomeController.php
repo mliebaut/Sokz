@@ -15,4 +15,11 @@ final class HomeController extends AbstractController
             'controller_name' => 'HomeController',
         ]);
     }
+    #[Route('/mentions-légales', name: 'mentions-légales')]
+    public function legaleseses(): Response
+    {
+        return $this->render('home/legals.html.twig', [
+            'controller_name' => 'HomeController',
+        ]);
+    }
 }
