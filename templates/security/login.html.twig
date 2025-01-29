@@ -2,40 +2,102 @@
 
 {% block title %}Log in!{% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 40px auto;
+        }
+        .logo-circle {
+            width: 60px;
+            height: 60px;
+            background: #000;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+        .logo-circle svg {
+            width: 35px;
+            height: 35px;
+            fill: white;
+        }
+        .form-control {
+            border-radius: 25px;
+            background-color: #f0faf9;
+            border: none;
+            padding: 12px 15px 12px 40px;
+        }
+        .input-group-text {
+            position: absolute;
+            z-index: 10;
+            background: none;
+            border: none;
+            color: #9ca3af;
+            padding-left: 15px;
+        }
+        .btn-login {
+            background-color: #2cd3c1;
+            border: none;
+            border-radius: 25px;
+            padding: 12px;
+            width: 100%;
+        }
+        .form-group {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+    </style>
+{% endblock %}
+
 {% block body %}
-    <form method="post">
-        {% if error %}
-            <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-        {% endif %}
-
-        {% if app.user %}
-            <div class="mb-3">
-                You are logged in as {{ app.user.userIdentifier }}, <a href="{{ path('app_logout') }}">Logout</a>
+    <div class="container">
+        <div class="login-container">
+            <div class="text-center mb-4">
+                <div class="logo-circle">
+                 <img src="{{ asset('images/logo.png') }}">
+                </div>
+                <h5>Login</h5>
             </div>
-        {% endif %}
 
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-        <label for="username">Email</label>
-        <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus>
-        <label for="password">Password</label>
-        <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+            <form method="post">
+                {% if error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
 
-        <input type="hidden" name="_csrf_token"
-               value="{{ csrf_token('authenticate') }}"
-        >
+                <div class="form-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-person"></i>
+                    </span>
+                    <input type="email" value="{{ last_username }}" name="_username" id="username" 
+                           class="form-control" placeholder="User name" required autofocus>
+                </div>
 
-        {#
-            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-            See https://symfony.com/doc/current/security/remember_me.html
+                <div class="form-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-lock"></i>
+                    </span>
+                    <input type="password" name="_password" id="password" 
+                           class="form-control" placeholder="Password" required>
+                </div>
 
-            <div class="checkbox mb-3">
-                <input type="checkbox" name="_remember_me" id="_remember_me">
-                <label for="_remember_me">Remember me</label>
-            </div>
-        #}
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
-        <button class="btn btn-lg btn-primary" type="submit">
-            Sign in
-        </button>
-    </form>
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" name="_remember_me" id="remember_me">
+                    <label class="form-check-label" for="remember_me">Remember me</label>
+                </div>
+
+                <button class="btn btn-primary btn-login mb-3" type="submit">
+                    LOGIN
+                </button>
+
+                <div class="text-end">
+                    <a href="#" class="text-muted text-decoration-none small">Forgot Password?</a>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}
