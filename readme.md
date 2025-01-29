@@ -12,6 +12,7 @@ Puis
 scoop install composer
 scoop bucket add versions
 scoop install versions/php83
+scoop install main/symfony-cli
 
 symfony.exe server:ca:install
 symfony composer install
