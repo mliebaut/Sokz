@@ -1,19 +1,139 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Create Account!{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <style>
+        .login-container {
+            max-width: 400px;
+            margin: 40px auto;
+        }
+        .logo-circle {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+        }
+        .logo-circle img {
+            width: 60px;
+            height: 60px;
+            fill: white;
+        }
+        .form-control {
+            border-radius: 25px;
+            background-color: #f0faf9;
+            border: none;
+            padding: 12px 15px 12px 40px;
+        }
+        .input-group-text {
+            position: absolute;
+            z-index: 10;
+            background: none;
+            border: none;
+            color: #9ca3af;
+            padding-left: 15px;
+        }
+        .btn-login {
+            background-color: #2cd3c1;
+            border: none;
+            border-radius: 25px;
+            padding: 12px;
+            width: 100%;
+        }
+        .form-group {
+            position: relative;
+            margin-bottom: 1rem;
+        }
+        .row-inputs {
+            display: flex;
+            gap: 1rem;
+        }
+    </style>
+{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
+    <div class="container">
+        <div class="login-container">
+            <div class="text-center mb-4">
+                <div class="logo-circle">
+                    <img src="{{ asset('images/logo.png') }}" alt="Symfony!"/>
+                </div>
+                <h5>Create Account</h5>
+            </div>
 
-    {{ form_errors(registrationForm) }}
+            <form method="post">
+                {% if error is defined and error %}
+                    <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                {% endif %}
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+                <div class="row-inputs">
+                    <div class="form-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person"></i>
+                        </span>
+                        <input type="text" name="username" id="username" 
+                               class="form-control" placeholder="User Name" 
+                               required autofocus>
+                    </div>
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+                    <div class="form-group">
+                        <span class="input-group-text">
+                            <i class="bi bi-person"></i>
+                        </span>
+                        <input type="text" name="lastname" id="lastname" 
+                               class="form-control" placeholder="Last Name" 
+                               required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-envelope"></i>
+                    </span>
+                    <input type="email" name="email" id="email" 
+                           class="form-control" placeholder="Email" 
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-lock"></i>
+                    </span>
+                    <input type="password" name="password" id="password" 
+                           class="form-control" placeholder="Password" 
+                           required>
+                </div>
+
+                <div class="form-group">
+                    <span class="input-group-text">
+                        <i class="bi bi-lock"></i>
+                    </span>
+                    <input type="password" name="confirm_password" id="confirm_password" 
+                           class="form-control" placeholder="Confirm Password" 
+                           required>
+                </div>
+
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" name="_remember_me" id="remember_me">
+                    <label class="form-check-label" for="remember_me">Remember me</label>
+                </div>
+
+                <button class="btn btn-primary btn-login mb-3" type="submit">
+                    CREATE ACCOUNT
+                </button>
+
+                <div class="text-end">
+                    <a href="{{ path('app_forgot_password_request') }}" class="text-muted text-decoration-none small">
+                        Forgot Password?
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
 {% endblock %}
