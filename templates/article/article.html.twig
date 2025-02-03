@@ -1,1 +1,26 @@
 
+{% block title %}Article{% endblock %}
+
+{% block body %}
+    <!-- Image and text -->
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+            <img src="{{ asset('images/logo.png') }}" width="30" height="30" class="d-inline-block align-top" alt="">
+            ZatSock's
+        </a>
+    </nav>
+
+    <h1>Article</h1>
+
+    <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{ asset('images/chaussettes_article.jpg') }}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{ article.title }}</h5>
+            <p class="card-text">{{ article.content }}</p>
+            <p class="card-text">Date de publication: {{ article.publishedDate ? article.publishedDate|date('Y-m-d H:i:s') : '' }}</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+
+{% endblock %}
+
