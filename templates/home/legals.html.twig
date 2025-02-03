@@ -3,18 +3,215 @@
 {% block title %}Hello HomeController!{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <style>
+        .example-wrapper {
+            margin: 1em auto;
+            max-width: 800px;
+            width: 95%;
+            font: 18px/1.5 sans-serif;
+        }
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+        .example-wrapper code {
+            background: #F5F5F5;
+            padding: 2px 6px;
+        }
+    </style>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/Mewo/Desktop/Sokz/SokzProject/src/Controller/HomeController.php</code></li>
-        <li>Your template at <code>C:/Users/Mewo/Desktop/Sokz/SokzProject/templates/home/index.html.twig</code></li>
-    </ul>
-</div>
+    <div class="example-wrapper">
+        <h1>Mentions Légales</h1>
+        <div>
+            <hr>
+            <h3>Identité</h3>
+            <p>
+            <div>
+                Nom du site : Sockz
+            </div>
+            <div>
+                Adresse du site : https://www.Sokz.nato
+            </div>
+            <div>
+                Propriétaire : Ernest Charpentier – 2-6 Rue de la Velle, 03230 Thiel-sur-Acolin –
+                Ernest.03.Charpentier@hotmail.com
+            </div>
+            <div>
+                SIREN : 1 55965 65 6562 26
+                Siège social : 2-6 Rue de la Velle, 03230 Thiel-sur-Acolin
+            </div>
+            <div>
+                Responsable de la publication : Froussard Michel - Fake@email.com
+            </div>
+
+            <div>
+                Création du site : Agence Web Mewo - 7 rue Edouard Belin 57000 Metz - contact@mewo.fr
+            </div>
+            <hr>
+            <h3>Hebergement</h3>
+            <div>
+                SAS au capital de 50 000 000 €
+            </div>
+            <div>
+                Hébergement du site : OVH – RCS Lille Métropole 424 761 419 00045
+            </div>
+            <div>
+                Code APE 2620Z
+            </div>
+            <div>
+                N° TVA : FR 22 424 761 419
+            </div>
+            <div>
+                Siège social : 2 rue Kellermann - 59100 Roubaix - France
+            </div>
+        </div>
+
+        OVH SAS est une filiale de la société OVH Groupe SA, société immatriculée au RCS de Lille sous le numéro
+        537 407 926 sise 2, rue Kellermann, 59100 Roubaix.
+
+        <div>
+            Directeur de la publication : Benjamin Revcolevschi
+        </div>
+        Ce site est hébergé par OVH SAS 2 rue Kellermann - 59100 Roubaix - France
+        </p>
+        <hr>
+        <h3>
+            Conditions d’utilisation
+        </h3>
+        <p>
+            L’utilisation du présent site implique l’acceptation pleine et entière des conditions générales
+            d’utilisation décrites ci-après. Ces conditions d’utilisation sont susceptibles d’être modifiées ou
+            complétées à tout moment.
+        </p>
+        <p>
+        <div>
+            <b>
+                Informations
+            </b>
+        </div>
+        Les informations et documents du site sont présentés à titre indicatif, sans caractère exhaustif, et ne
+        peuvent engager la responsabilité du propriétaire du site.
+        Le propriétaire du site ne peut être tenu responsable des dommages directs et indirects consécutifs à
+        l’accès au site.
+        </p>
+        <p>
+        <div>
+            <b>
+                Interactivité
+            </b>
+        </div>
+        Les utilisateurs du site peuvent y déposer du contenu, apparaissant sur le site dans des espaces dédiés
+        (notamment via les commentaires). Le contenu déposé reste sous la responsabilité de leurs auteurs, qui
+        en
+        assument pleinement l’entière responsabilité juridique.
+
+        Le propriétaire du site se réserve néanmoins le droit de retirer sans préavis et sans justification tout
+        contenu déposé par les utilisateurs qui ne satisferait pas à la charte déontologique du site ou à la
+        législation en vigueur.
+        <p/>
+        <p>
+        <div>
+            <b>
+                Propriété intellectuelle
+            </b>
+        </div>
+        <div>
+            Sauf mention contraire, tous les éléments accessibles sur le site (textes, images, graphismes, logo,
+            icônes,
+            sons, logiciels, etc.) restent la propriété exclusive de leurs auteurs, en ce qui concerne les droits de
+            propriété intellectuelle ou les droits d’usage. 1
+        </div>
+        <div>
+            Toute reproduction, représentation, modification, publication, adaptation de tout ou partie des éléments
+            du
+            site, quel que soit le moyen ou le procédé utilisé, est interdite, sauf autorisation écrite préalable de
+            l’auteur.
+        </div>
+        <div>
+            Toute exploitation non autorisée du site ou de l’un quelconque des éléments qu’il contient est
+            considérée
+            comme constitutive d’une contrefaçon et passible de poursuites. 4
+
+            Les marques et logos reproduits sur le site sont déposés par les sociétés qui en sont propriétaires.
+        </div>
+        </p>
+        <h3>
+            <b>
+                Liens
+            </b>
+        </h3>
+        <p>
+        <div>
+            <b>
+                Liens sortants
+            </b>
+        </div>
+        Le propriétaire du site décline toute responsabilité et n’est pas engagé par le référencement via des
+        liens
+        hypertextes, de ressources tierces présentes sur le réseau Internet, tant en ce qui concerne leur
+        contenu
+        que leur pertinence.
+        </p>
+        <p>
+        <div>
+            <b>
+                Liens entrants
+            </b>
+        </div>
+
+        <div>
+            Le propriétaire du site autorise les liens hypertextes vers l’une des pages de ce site, à condition que
+            ceux-ci ouvrent une nouvelle fenêtre et soient présentés de manière non-équivoque afin d’éviter :
+        </div>
+        <div>
+            Tout risque de confusion entre le site citant et le propriétaire du site
+            ainsi que toute présentation tendancieuse, ou contraire aux lois en vigueur.
+        </div>
+        <div>
+            Le propriétaire du site se réserve le droit de demander la suppression d’un lien s’il estime que le site
+            source ne respecte pas les règles ainsi définies.
+        </div>
+        </p>
+        <p>
+        <div id="confidentialité" class="border">
+
+        <h4>
+            <b>
+                Confidentialité
+            </b>
+        </h4>
+        <div>
+            Tout utilisateur dispose d’un droit d’accès, de rectification et d’opposition aux données personnelles le
+            concernant, en effectuant sa demande écrite et signée, accompagnée d’une preuve d’identité.
+        </div>
+        <div>
+            Le site ne recueille pas d’informations personnelles, et n’est pas assujetti à déclaration à la CNIL.
+        </div>
+        <div>
+            Politique de confidentialité : se référer à la page Politique de Confidentialité
+        </div>
+        <div>
+            Politique de cookies : se référer à la page Politique des Cookies
+        </div>
+        <div>
+            Mentions légales fournies par WebExpress – Version 2.5 – Utilisation libre sous Licence Creative Commons CC
+            BY-NC-ND 3.0 FR / creativecommons.org.
+        </div>
+        <div>1 - Articles L111-1 et suivants du Code de la Propriété Intellectuelle du 1er juillet 1992</div>
+        <div>2 - Article 41 de la loi du 11 mars 1957</div>
+        <div>3 - Article L. 226-13 du Code pénal et la Directive Européenne du 24 octobre 1995</div>
+        <div>4 - Articles L.335-2 et suivants du Code de Propriété Intellectuelle</div>
+        <div>5 - Loi n° 78-17 du 6 janvier 1978, modifiée par la loi n° 2004-801 du 6 août 2004, relative à l’informatique,
+            aux fichiers et aux libertés
+        </div>
+        <div>6 - Articles 38 et suivants de la loi 78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux
+            libertés
+        </div>
+        <div>7 - Loi du 1er juillet 1998 transposant la directive 96/9 du 11 mars 1996 relative à la protection juridique
+            des bases de données
+        </div>
+        <div>8 - Loi n° 2004-801 du 6 août 2004</div>
+        <div>9 - Article 6 de la loi n° 2004-575 du 21 juin 2004 pour la confiance dans l’économie numérique</div>
+        </p>
+        </div>
+
+    </div>
+    </div>
 {% endblock %}
