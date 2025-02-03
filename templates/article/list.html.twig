@@ -1,20 +1,129 @@
-{% extends 'base.html.twig' %}
+{# templates/article.html.twig #}
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>ZATSOCKS</title>
+        <style>
+            body {
+                margin: 0;
+                padding: 0;
+                font-family: Arial, sans-serif;
+            }
+            
+            nav {
+                background-color: #f8f8f8;
+                padding: 15px;
+            }
+            
+            .container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+                display: grid;
+                grid-template-columns: 1fr 300px;
+                gap: 30px;
+            }
+            
+            .main-content {
+                padding-right: 20px;
+            }
+            
+            .blog-post {
+                margin-bottom: 40px;
+            }
+            
+            .post-title {
+                color: #333;
+                margin-bottom: 15px;
+            }
+            
+            .post-image img {
+                width: 100%;
+                height: auto;
+                border-radius: 8px;
+                margin-bottom: 15px;
+            }
+            
+            .post-content {
+                color: #666;
+                line-height: 1.6;
+            }
+            
+            .sidebar {
+                background: #f8f8f8;
+                padding: 20px;
+                border-radius: 8px;
+            }
+            
+            .popular-article {
+                margin-bottom: 20px;
+            }
+            
+            .popular-article img {
+                width: 100%;
+                height: 120px;
+                object-fit: cover;
+                border-radius: 6px;
+            }
+            
+            .popular-article h4 {
+                margin: 10px 0;
+                font-size: 16px;
+            }
+            
+            .popular-article p {
+                font-size: 14px;
+                color: #666;
+                margin: 0;
+            }
+        </style>
+    </head>
+    <body>
+        <nav>
+            <div class="logo">ZATSOCKS</div>
+            <ul>
+                <li><a href="#">Accueil</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Forum</a></li>
+            </ul>
+        </nav>
 
-{% block title %}Hello ArticleController!{% endblock %}
+        <div class="container">
+            <main class="main-content">
+                <article class="blog-post">
+                    <h2 class="post-title">Titre du post</h2>
+                    <div class="post-image">
+                        <img src="{{ asset('images/image1.jpg') }}" alt="Image du premier article">
+                    </div>
+                    <div class="post-content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </div>
+                </article>
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+                <article class="blog-post">
+                    <h2 class="post-title">Titre du post</h2>
+                    <div class="post-image">
+                        <img src="{{ asset('images/image2.jpg') }}" alt="Image du deuxième article">
+                    </div>
+                    <div class="post-content">
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    </div>
+                </article>
+            </main>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>C:/Users/MEWO/PhpstormProjects/Sokz/src/Controller/ArticleController.php</code></li>
-        <li>Your template at <code>C:/Users/MEWO/PhpstormProjects/Sokz/templates/article/index.html.twig</code></li>
-    </ul>
-</div>
-{% endblock %}
+            <aside class="sidebar">
+                <h3>Nos articles populaires</h3>
+                {% for i in 1..3 %}
+                    <div class="popular-article">
+                        <img src="{{ asset('images/popular' ~ i ~ '.jpg') }}" alt="Article populaire {{ i }}">
+                        <h4>Lorem ipsum dolor</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+                    </div>
+                {% endfor %}
+            </aside>
+        </div>
+    </body>
+</html>

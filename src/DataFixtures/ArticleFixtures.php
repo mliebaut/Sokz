@@ -17,14 +17,23 @@ class ArticleFixtures extends Fixture
 
     public function load(ObjectManager $manager): void
     {
-        for ($i = 0; $i < 10; $i++) {
-            $article1 = new Article();
-            $article1->setTitle($this->faker->title);
-            $article1->setContent($this->faker->realText($this->faker->numberBetween(10, 20)));
-            $article1->setPublishedDate(new \DateTime('now'));
-            $article1->setSlug(SlugGenerator::generateSlug($article1->getTitle()));
-            $manager->persist($article1);
-        }
+        $article = new Article();
+        $article->setTitle('Notre Mascotte Joyeuse');
+        $article->setContent('Découvrez notre nouvelle mascotte joyeuse !');
+        $article->setViews(0);
+        $manager->persist($article);
+
+        $article2 = new Article();
+        $article2->setTitle('Collection Colorée');
+        $article2->setContent('Notre nouvelle collection de chaussettes colorées est arrivée !');
+        $article2->setViews(0);
+        $manager->persist($article2);
+
+        $article3 = new Article();
+        $article3->setTitle('Tendances de l\'été');
+        $article3->setContent('Les nouvelles tendances pour cet été...');
+        $article3->setViews(0);
+        $manager->persist($article3);
 
         $manager->flush();
     }
